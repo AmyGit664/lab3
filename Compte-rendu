@@ -1,0 +1,155 @@
+/************************** lab3: Commandes shell fondamentales ************************/
+/****************************** Commandes utilisées ************************************/
+
+
+
+Le but de ce lab est de se familiariser avec les commandes de base unix qui vont nous aider
+dans la suite des labs à venir.
+
+/*********************/
+/*** 3ème question ***/
+/*********************/
+
+Le dossier du lab3 contient des fichiers avec lesquels nous allons travaillé. Ce dossier se
+trouve sur Github. Il faudra le récupérer depuis le terminal ouvert en tapant:
+"git clone https://github.com/AmyGit664/lab3.git".
+
+/*********************/
+/*** 4ème question ***/
+/*********************/
+
+Pour prendre connaissance des fichiers existants dans ce dossiers, il faut faire appel à la commande
+"ls". On compte 4 fichiers et répertoires en tout. La commande "ls -lrt" nous donne des informations
+utiles sur les fichiers comme l'espace disque occupé par les fichiers et répertoires en kilo-octets. 
+La taille était de 4 ko. On voit aussi les droits d'accès de chaque fichiers.
+Par exemple, "-rw-rw-r-- 1 student student  70408 Oct 23 08:47 answering-machine.txt" nous informe que
+le fichier "answering-machine.txt" a une taille de 70408 octets et que moi (l'utilisateur) peux écrire
+et lire sur ce fichier.
+* "drwxrwxr-x 2 student student   4096 Oct 24 13:40 sardar" => taille de 4096 octets et l'utilisateur a
+le droit d'écrire, de lire et d'exécuter.
+
+AN: le "d" ou "l" devant les droits d'accès nous dit que le fichier considéré est respectivement un
+répertoire ou un lien symbolique.
+
+/*********************/
+/*** 6ème question ***/
+/*********************/
+
+Avec la commande "du" appliquée au fichier Microsoft, on trouve comme résultat: 36 Microsoft =>
+l'espace disque occupé par ce fichier est de 36 ko. Alors que avec la commande "ls -lrt", on trouve
+34359 octets pour le même fichier.
+En effet, "du" affiche lespace alloué pour chaque fichier mais pas la taille absolue des fichiers.
+
+/*********************/
+/*** 7ème question ***/
+/*********************/
+
+On peut relever l'inode qui est égal à 1063801 grâce à la commande "stat". L'inode est l'élément de
+localisation du fichier Microsoft sur le système de fichiers. Chaque fichier possède son propre inode
+qui contient la totalité des informations sur ce fichier sauf le nom.
+
+/*********************/
+/*** 8ème question ***/
+/*********************/
+
+Après avoir appliqué la commande "ls -a", on remarque qu'on a un dossier caché ".git" et un fichier
+".lightbulb". Les fichiers cachés commencent par un point.
+
+/*********************/
+/*** 9ème question ***/
+/*********************/
+
+Pour afficher les fichiers des plus anciens aux plus récents, il faut utiliser la commande "ls -rt".
+
+/**********************/
+/*** 10ème question ***/
+/**********************/
+
+La commande "ls -lrS" permet d'afficher les fichiers des plus petits aux plus gros.
+
+/**********************/
+/*** 11ème question ***/
+/**********************/
+
+Pour afficher le contenu du fichier "answering-machine.txt", on utilise la commande "cat" =>
+"cat answering-machine.txt".
+
+/**********************/
+/*** 12ème question ***/
+/**********************/
+
+Il faudra ajouter la commande "more" pour que l'on puisse afficher le contenu par page pour nous
+laisser le temps de lire => "cat answerig-machine.txt | more".
+
+/**********************/
+/*** 13ème question ***/
+/**********************/
+
+Par contre, avec la commande "cat", on ne peut juste qu'afficher le contenu mais on ne peut pas écrire ou
+modifier. Pour cela, il existe un éditeur de texte qui s'appelle "vim" qui nous permettra de le faire. Il
+faudra l'installer avec "sudo apt-get install vim".
+
+/**********************/
+/*** 14ème question ***/
+/**********************/
+
+Une fois installé, on peut rajouter du texte en appuyant au préalable sur "i" pour insérer. Ensuite, pour
+sauvegarder et quitter l'éditeur, on appuie sur "echap" et on tape ":wq".
+
+/**********************/
+/*** 15ème question ***/
+/**********************/
+
+Si on veut un mot, on appuie sur "i" puis on tape "/motàchercher". Pour le supprimer une fois trouvé, il suffit
+de taper "dw".
+
+/**********************/
+/*** 18ème question ***/
+/**********************/
+
+Pour aller à la fin d'un fichier, il faut taper sur "MAJ+G". La commande "?" permettra de chercher en arrière la
+dernière occurrence d'un mot puis on remonte le fichier avec la commande "n" pour trouver les autres occurrences.
+
+/**********************/
+/*** 19ème question ***/
+/**********************/
+
+Si on souhaite afficher les 20 dernières lignes du fichier "sardar3.txt", on utilise la commande "tail" =>
+"tail -20 sardar3.txt"
+
+/**********************/
+/*** 21ème question ***/
+/**********************/
+
+Pour chercher un mot dans tous les fichiers du répertoire, "grep -r money ./" nous affiche tous les fichiers et dossiers
+qui contiennet le mot recherché.
+
+/**********************/
+/*** 23ème question ***/
+/**********************/
+
+Pour modifier un fichier caché pour qu'il ne le soit plus, il suffit de taper "mv .lightbulb lightbulb".
+
+/**********************/
+/*** 25ème question ***/
+/**********************/
+
+Pour déplacer un fichier ("sardar3.txt") depuis un répertoire courant vers un répertoire parent, il faut taper
+"mv sardar3.txt ~/Desktop". Pour retourner dans le répertoire parent, "cd .." permet de le faire.
+
+/**********************/
+/*** 27ème question ***/
+/**********************/
+
+Pour supprimer un fichier non vide (Microsoft), il faut faire: "rm Microsoft"
+
+/**********************/
+/*** 28ème question ***/
+/**********************/
+
+On veut créer un répertoire archive afin d'y copier tous les fichiers du répertoire courant. Pour cela, il faut
+faire appel à la commande "tar" => "tar -cvf archive.tar fichier1 fichier2 fichier3".
+
+Pour créer une archive compressée, il faut écrire "tar -cjvf lab3.tar.bz2 ~/lab3 et pour lister les fichiers dans le
+".tar.bz2" sans décompresser, on fait "tar -tvjf lab3.tar.bz2".
+
